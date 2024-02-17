@@ -46,7 +46,7 @@ def grabWeather():
         
 while True:
     grabWeather()
-    time.sleep(3600)  # Wait for 60 minutes (3600 seconds) before next execution
+    time.sleep(3600)
 
 
 
