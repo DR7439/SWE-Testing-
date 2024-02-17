@@ -44,9 +44,10 @@ def grabWeather():
     finally:
         cur.close() 
         
-grabWeather()
-        
-# Function to fetch and store bike station data
+while True:
+    grabWeather()
+    time.sleep(3600)  # Wait for 60 minutes (3600 seconds) before next execution
+
 
 
     
