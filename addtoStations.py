@@ -35,7 +35,7 @@ table_name = "station"
 
 # Define the SQL statement to insert data into the table
 insert_query = f"""
-INSERT INTO {table_name} (number, address, banking, bike_stands, name, position_lat, position_lng)
+INSERT INTO {table_name} (number, address, banking, bike_stands, name, lat, lng)
 VALUES (%s, %s, %s, %s, %s, %s, %s);
 """
 try:
@@ -47,8 +47,8 @@ try:
             station['banking'],
             station['bike_stands'],
             station['name'],
-            station['position_lat'],
-            station['position_lng']
+            station['lat'],
+            station['lng']
             ))
 
         # Commit the transaction
