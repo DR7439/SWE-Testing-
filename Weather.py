@@ -19,8 +19,7 @@ def grabWeather():
     response_API = requests.get(f"http://api.openweathermap.org/data/2.5/weather?id={city_id}&appid={weather_api_key}")
     data = response_API.text
     weather = json.loads(data)
-
-    # Add this line to debug the specific access
+    
     print("Accessing 'main' in weather:", 'main' in weather)
 
     table_name = "weather_data"
