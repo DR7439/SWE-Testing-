@@ -14,7 +14,7 @@ conn = mysql.connector.connect(
 
 def grabWeather():
     weather_api_key = "f35e8800b1d73a63d25ce3213748fba7"
-    city_id = "Dublin"
+    city_id = "2964574"
 
     response_API = requests.get(f"http://api.openweathermap.org/data/2.5/weather?id={city_id}&appid={weather_api_key}")
     data = response_API.text
