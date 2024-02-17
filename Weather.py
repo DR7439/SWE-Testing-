@@ -44,9 +44,8 @@ def grabWeather():
     finally:
         cur.close() 
         
-while True:
     grabWeather()
-    time.sleep(3600)
+    
 
 
 
