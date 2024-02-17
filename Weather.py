@@ -39,7 +39,10 @@ def grabWeather():
             weather['main']['humidity'],
             weather['weather'][0]['main']
         ))
+
+        print(f"Data inserted into table {table_name} successfully.")
         conn.commit()
+        
     except mysql.connector.Error as e:
         print(f"Database error: {e}")
     finally:
