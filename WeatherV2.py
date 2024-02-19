@@ -5,6 +5,8 @@ import logging
 import json
 import mysql.connector
 
+logging.basicConfig(filename='weather_log.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+
 logging.info("starting connection")
 
 # Connecting to database
@@ -14,7 +16,6 @@ conn = mysql.connector.connect(
     password="Lochlainn7",
     database="dublinbikes"
 )
-
 
 def grabWeather():
     try:
@@ -26,41 +27,27 @@ def grabWeather():
         weather = json.loads(data)
 
         table_name = "weather_data"
-        insert_query = f"""
+        insert_query = f'''
         INSERT INTO {table_name} (city_id, temperature, humidity, weather_condition)
         VALUES (%s, %s, %s, %s);
-        """
+        '''
         cur = conn.cursor()
 
-    except mysql.connector.Error as e:
-        logging.info(f"Database error: {e}")
+        try:
+            cur.execute(insert_query, (
+                city_id,
+                weather['main']['temp'],
+                weather['main']['humidity'],
+                weather['weather'][0]['main']
+            ))
 
-    try:
-        cur.execute(insert_query, (
-            city_id,
-            weather['main']['temp'],
-            weather['main']['humidity'],
-            weather['weather'][0]['main']
-        ))
-
-        logging.info(f"Data inserted into table {table_name} successfully.")
-        conn.commit()
-        
-    except mysql.connector.Error as e:
-        logging.info(f"Database error: {e}")
-    finally:
-        cur.close() 
-        
-
-grabWeather()
-    
-
-
-
-    
-    
-
-
+            logging.info(f"Data inserted into table {table_name} successfully.")
+            conn.commit()
+            
+        except mysql.connector.Error as e:
+            logging.error(f"Database error: {e}")
+        finally:
+            cur.close() 
 
     except Exception as e:
         logging.error("An error occurred in grabWeather: " + str(e))
