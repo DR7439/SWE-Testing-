@@ -51,7 +51,8 @@ def grabWeather():
     finally:
         cur.close() 
         
-    grabWeather()
+
+grabWeather()
     
 
 
