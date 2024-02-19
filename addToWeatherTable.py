@@ -23,12 +23,6 @@ def grabWeather():
     data = response_API.text
     weather = json.loads(data)
 
-    print(weather)  # Print the full response
-    print(type(weather))  # Confirm that 'weather' is a dictionary
-
-        # Add this line to debug the specific access
-    print("Accessing 'main' in weather:", 'main' in weather)
-
     table_name = "weather_data"
     insert_query = f"""
     INSERT INTO {table_name} (city_id, temperature, humidity, weather_condition)
