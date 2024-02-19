@@ -4,6 +4,8 @@ import traceback
 import json
 import mysql.connector
 
+print("starting connection")
+
 # Connecting to database
 conn = mysql.connector.connect(
     host="dublinbikes.cbiys4e40sjh.eu-west-1.rds.amazonaws.com",
@@ -11,6 +13,8 @@ conn = mysql.connector.connect(
     password="Lochlainn7",
     database="dublinbikes"
 )
+
+print("Accessing 'main' in weather:", 'main' in weather)
 
 def grabWeather():
     weather_api_key = "f35e8800b1d73a63d25ce3213748fba7"
