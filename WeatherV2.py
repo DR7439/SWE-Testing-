@@ -34,9 +34,7 @@ def grabWeather():
 
     except mysql.connector.Error as e:
         logging.info(f"Database error: {e}")
-    finally:
 
-        
     try:
         cur.execute(insert_query, (
             city_id,
