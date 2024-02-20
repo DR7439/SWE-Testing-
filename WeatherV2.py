@@ -58,5 +58,7 @@ def grabWeather():
             conn.close()
             logging.info('Database connection closed.')
 
+print("Data inserted into table")
+
 if __name__ == "__main__":
     grabWeather()
