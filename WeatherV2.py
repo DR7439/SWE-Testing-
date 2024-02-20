@@ -4,7 +4,7 @@ import traceback
 import logging
 import json
 import mysql.connector
-from datetime import datetime
+import time
 
 logging.basicConfig(filename='weather_log.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -27,7 +27,7 @@ def grabWeather():
         data = response_API.text
         weather = json.loads(data)
 
-        current_time = datetime.now()
+        current_time = int(time.time())
 
         table_name = "weather_data"
         insert_query = f'''
