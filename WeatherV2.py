@@ -4,6 +4,7 @@ import traceback
 import logging
 import json
 import mysql.connector
+from datetime import datetime
 
 logging.basicConfig(filename='weather_log.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
