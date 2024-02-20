@@ -28,8 +28,8 @@ def grabWeather():
 
         table_name = "weather_data"
         insert_query = f'''
-        INSERT INTO {table_name} (city_id, temperature, humidity, weather_condition)
-        VALUES (%s, %s, %s, %s);
+        INSERT INTO {table_name} (city_id, temperature, humidity, weather_condition, capture_time)
+        VALUES (%s, %s, %s, %s, %s);
         '''
         cur = conn.cursor()
 
@@ -39,6 +39,7 @@ def grabWeather():
                 weather['main']['temp'],
                 weather['main']['humidity'],
                 weather['weather'][0]['main']
+                current_time
             ))
 
             logging.info(f"Data inserted into table {table_name} successfully.")
