@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS weather_data (
     temperature FLOAT,
     humidity INT,
     weather_condition VARCHAR(255),
-    capture_time DATETIME,
+    capture_time INT,
     INDEX (capture_time)
 );
 """
