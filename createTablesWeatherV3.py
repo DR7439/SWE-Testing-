@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS availability (
 """
 
 # SQL statement to create the weather table
-# Adjust the fields according to the data you will be storing
 create_weather_table_query = """
 CREATE TABLE IF NOT EXISTS weather_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
