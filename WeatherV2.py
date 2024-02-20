@@ -26,6 +26,8 @@ def grabWeather():
         data = response_API.text
         weather = json.loads(data)
 
+        current_time = datetime.now()
+
         table_name = "weather_data"
         insert_query = f'''
         INSERT INTO {table_name} (city_id, temperature, humidity, weather_condition, capture_time)
