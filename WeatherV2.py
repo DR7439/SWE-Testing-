@@ -38,7 +38,7 @@ def grabWeather():
                 city_id,
                 weather['main']['temp'],
                 weather['main']['humidity'],
-                weather['weather'][0]['main']
+                weather['weather'][0]['main'],
                 current_time
             ))
 
